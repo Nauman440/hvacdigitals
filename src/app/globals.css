@@ -57,6 +57,18 @@
   --color-chart-3: hsl(var(--chart-3));
   --color-chart-4: hsl(var(--chart-4));
   --color-chart-5: hsl(var(--chart-5));
+
+  /* v2 editorial palette */
+  --color-paper: #F5F1EA;
+  --color-paper-2: #ECE6DB;
+  --color-ink: #141A21;
+  --color-ink-2: #3B434D;
+  --color-ink-3: #6B7280;
+  --color-line: #DCD4C6;
+  --color-flame: #E8590C;
+  --color-flame-dark: #C2470A;
+  --color-moss: #2E7D4F;
+  --font-head: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* ---------------------------------------------------------------------------
@@ -79,7 +91,7 @@
   --sidebar: 225 45% 11%;
   --sidebar-foreground: 0 0% 95%;
   --sidebar-border: 225 30% 18%;
-  --sidebar-primary: 20 100% 58%;
+  --sidebar-primary: 22 90% 48%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 191 100% 50%;
   --sidebar-accent-foreground: 0 0% 10%;
@@ -87,7 +99,7 @@
   --popover: 225 45% 11%;
   --popover-foreground: 0 0% 95%;
   --popover-border: 225 30% 18%;
-  --primary: 20 100% 58%;
+  --primary: 22 90% 48%;
   --primary-foreground: 0 0% 100%;
   --secondary: 191 100% 50%;
   --secondary-foreground: 0 0% 10%;
@@ -98,16 +110,16 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
   --input: 225 30% 18%;
-  --ring: 20 100% 58%;
-  --chart-1: 20 100% 58%;
+  --ring: 22 90% 48%;
+  --chart-1: 22 90% 48%;
   --chart-2: 191 100% 50%;
   --chart-3: 225 50% 40%;
   --chart-4: 225 30% 60%;
   --chart-5: 225 20% 80%;
-  --app-font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;
+  --app-font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --app-font-serif: Georgia, serif;
   --app-font-mono: Menlo, monospace;
-  --app-font-display: var(--font-bebas), 'Bebas Neue', sans-serif;
+  --app-font-display: var(--font-archivo), ui-sans-serif, sans-serif;
   --radius: .5rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(225 50% 9% / 0.1);
   --shadow-xs: 0px 2px 0px 0px hsl(225 50% 9% / 0.1);
@@ -149,7 +161,7 @@
   --sidebar: 225 45% 11%;
   --sidebar-foreground: 0 0% 95%;
   --sidebar-border: 225 30% 18%;
-  --sidebar-primary: 20 100% 58%;
+  --sidebar-primary: 22 90% 48%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 191 100% 50%;
   --sidebar-accent-foreground: 0 0% 10%;
@@ -157,7 +169,7 @@
   --popover: 225 45% 11%;
   --popover-foreground: 0 0% 95%;
   --popover-border: 225 30% 18%;
-  --primary: 20 100% 58%;
+  --primary: 22 90% 48%;
   --primary-foreground: 0 0% 100%;
   --secondary: 191 100% 50%;
   --secondary-foreground: 0 0% 10%;
@@ -168,8 +180,8 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
   --input: 225 30% 18%;
-  --ring: 20 100% 58%;
-  --chart-1: 20 100% 58%;
+  --ring: 22 90% 48%;
+  --chart-1: 22 90% 48%;
   --chart-2: 191 100% 50%;
   --chart-3: 225 50% 40%;
   --chart-4: 225 30% 60%;
@@ -252,4 +264,30 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Legacy pages used a condensed display face; keep their proportions with Archivo's width axis. */
+.font-display {
+  font-stretch: 72%;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+}
+
+/* v2 helpers */
+.font-head {
+  font-family: var(--font-head);
+  font-stretch: 100%;
+}
+.tnum { font-variant-numeric: tabular-nums; }
+.hand-underline {
+  background-image: linear-gradient(transparent 62%, rgb(232 89 12 / 0.28) 62%, rgb(232 89 12 / 0.28) 92%, transparent 92%);
+}
+@keyframes feed-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.feed-in { animation: feed-in 0.45s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .feed-in { animation: none; }
+  html { scroll-behavior: auto; }
 }
