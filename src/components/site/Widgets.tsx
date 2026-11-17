@@ -294,33 +294,36 @@ export function FaqList({ items }: { items: { q: string; a: string }[] }) {
 }
 
 /* ------------------------------------------------------------------------- */
-/* Inline city check: hands the city to the main form and scrolls to it       */
+/* Inline website box: hands the URL to the main form and scrolls to it       */
 /* ------------------------------------------------------------------------- */
 
-export function CityCheck({ target = "check" }: { target?: string }) {
-  const [city, setCity] = useState("");
+export function WebsiteCheck({ target = "check" }: { target?: string }) {
+  const [site, setSite] = useState("");
   const go = (e: React.FormEvent) => {
     e.preventDefault();
-    window.dispatchEvent(new CustomEvent("leadform:city", { detail: city }));
+    window.dispatchEvent(new CustomEvent("leadform:website", { detail: site }));
     const el = document.getElementById(target);
     el?.scrollIntoView({ behavior: "smooth", block: "center" });
-    window.setTimeout(() => el?.querySelector<HTMLButtonElement>("fieldset button")?.focus({ preventScroll: true }), 600);
+    window.setTimeout(() => el?.querySelector<HTMLInputElement>("input[autocomplete='name']")?.focus({ preventScroll: true }), 600);
   };
   return (
     <form onSubmit={go} className="flex w-full max-w-xl flex-col gap-2 sm:flex-row">
-      <label htmlFor="city-check" className="sr-only">
-        Your city
+      <label htmlFor="website-check" className="sr-only">
+        Your website
       </label>
       <input
-        id="city-check"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Your city, e.g. Katy or Round Rock"
+        id="website-check"
+        value={site}
+        onChange={(e) => setSite(e.target.value)}
+        placeholder="yourcompany.com"
+        inputMode="url"
+        autoCapitalize="none"
+        spellCheck={false}
         className="h-14 flex-1 rounded-md border-0 bg-white px-4 text-[17px] text-ink shadow-sm outline-none placeholder:text-ink-3 focus:ring-4 focus:ring-ink/20"
-        autoComplete="address-level2"
+        autoComplete="url"
       />
       <button type="submit" className="h-14 rounded-md bg-ink px-6 text-[16px] font-semibold text-paper transition-colors hover:bg-black">
-        Check my city →
+        Audit my website →
       </button>
     </form>
   );

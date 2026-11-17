@@ -6,10 +6,10 @@ import { LeadForm } from "@/components/site/LeadForm";
 const STEPS = [
   {
     when: "Day 0",
-    t: "Check your city",
-    d: "You tell us where you work and what you want more of. We confirm within one business hour whether your city is open. We take one HVAC company per city.",
+    t: "Request your audit",
+    d: "Leave your name, phone, email and website. We reach out within one business hour and confirm your service area. We take one HVAC company per city.",
     you: ["Fill out a 30-second form"],
-    us: ["Check availability", "Book a 15-minute call with Muhammad"],
+    us: ["Confirm your service area is open", "Book a 15-minute call with Muhammad"],
   },
   {
     when: "Within 48 hours",
@@ -107,7 +107,7 @@ export default function ProcessPage() {
                 Step 1 takes <span className="text-flame">30 seconds.</span>
               </h2>
               <p className="mt-6 max-w-lg text-[18px] leading-relaxed text-paper/70">
-                Tell us where you work. If your city&apos;s open, your free audit is on its way.
+                Leave your details and website. Your free audit is on its way.
               </p>
               <p className="mt-6 flex items-center gap-2 text-[16px] text-paper/60">
                 <ArrowRight className="h-4 w-4 text-flame" /> No contract, no pressure.

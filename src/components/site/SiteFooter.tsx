@@ -69,7 +69,7 @@ export function SiteFooter() {
               href="/contact"
               className="mt-6 inline-block rounded-md bg-flame px-4 py-2.5 text-[15px] font-semibold text-white hover:bg-flame-dark"
             >
-              Is my city open?
+              Get a free audit
             </Link>
           </div>
         </div>

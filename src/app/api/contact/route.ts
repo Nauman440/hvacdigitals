@@ -16,6 +16,7 @@ const leadSchema = z.object({
   email: z.string().trim().email("A valid email is required").max(200),
   phone: z.string().trim().max(40).optional().default(""),
   company: z.string().trim().max(160).optional().default(""),
+  website: z.string().trim().max(300).optional().default(""),
   service: z.string().trim().max(120).optional().default(""),
   budget: z.string().trim().max(80).optional().default(""),
   message: z.string().trim().max(5000).optional().default(""),
@@ -24,6 +25,9 @@ const leadSchema = z.object({
 });
 
 type Lead = z.infer<typeof leadSchema>;
+
+/** Where lead notifications go. Server-only: never rendered on the site. */
+const LEAD_INBOX = process.env.LEAD_NOTIFY_EMAIL || "muhammadnauman475@gmail.com";
 
 // Basic in-memory rate limit (per server instance): 5 submissions / 10 min / IP.
 const WINDOW_MS = 10 * 60 * 1000;
@@ -57,12 +61,13 @@ async function sendWebhook(lead: Omit<Lead, "website_url">, meta: Record<string,
 async function sendEmail(lead: Omit<Lead, "website_url">, meta: Record<string, string>) {
   const key = process.env.RESEND_API_KEY;
   if (!key) return false;
-  const to = process.env.LEAD_NOTIFY_EMAIL || SITE.email;
+  const to = LEAD_INBOX;
   const rows: [string, string][] = [
     ["Name", lead.name],
     ["Email", lead.email],
     ["Phone", lead.phone],
     ["Company", lead.company],
+    ["Website", lead.website],
     ["Service", lead.service],
     ["Budget", lead.budget],
     ["Page", meta.page],
@@ -96,7 +101,7 @@ async function sendEmail(lead: Omit<Lead, "website_url">, meta: Record<string, s
 export async function GET() {
   return NextResponse.json({
     email: Boolean(process.env.RESEND_API_KEY),
-    emailTo: process.env.RESEND_API_KEY ? (process.env.LEAD_NOTIFY_EMAIL || SITE.email).replace(/^(.{2}).*(@.*)$/, "$1…$2") : null,
+    emailTo: process.env.RESEND_API_KEY ? LEAD_INBOX.replace(/^(.{2}).*(@.*)$/, "$1…$2") : null,
     webhook: Boolean(process.env.LEAD_WEBHOOK_URL),
   });
 }

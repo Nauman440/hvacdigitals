@@ -7,7 +7,7 @@ export const SITE = {
   phone: `(${PHONE_DIGITS.slice(0, 3)}) ${PHONE_DIGITS.slice(3, 6)}-${PHONE_DIGITS.slice(6)}`,
   phoneHref: `tel:+1${PHONE_DIGITS}`,
   phoneE164: `+1${PHONE_DIGITS}`,
-  email: "muhammadnauman475@gmail.com",
+  email: "hello@hvacdigitals.com",
   hours: "Mon–Fri, 7am–7pm CT",
   city: "Dallas, TX",
   linkedin: "https://www.linkedin.com/in/nauman-ai-automation-expert/",

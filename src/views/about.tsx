@@ -169,8 +169,8 @@ export default function AboutPage() {
                 Let&apos;s see if we&apos;re a <span className="text-flame">fit.</span>
               </h2>
               <p className="mt-6 max-w-lg text-[18px] leading-relaxed text-paper/70">
-                Tell us where you work. If your city is open, you&apos;ll get a free recorded audit within 48 hours, and a straight
-                answer about whether we can help.
+                Leave your details and website. You&apos;ll get a free recorded audit within 48 hours, and a straight answer about
+                whether we can help.
               </p>
               <p className="mt-8 text-[16px] text-paper/60">
                 Or call <a href={SITE.phoneHref} className="tnum font-semibold text-paper hover:text-flame">{SITE.phone}</a>

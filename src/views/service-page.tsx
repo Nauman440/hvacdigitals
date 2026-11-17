@@ -327,7 +327,7 @@ export default function ServicePage({ service: s }: { service: ServiceData }) {
                 </dl>
               </div>
               <div className="lg:col-span-5 lg:sticky lg:top-[130px] scroll-mt-32" id="top-form">
-                <LeadForm source={s.slug} defaultService={s.kicker} heading={s.formHeading} subheading="One HVAC company per city. Two quick steps, about 30 seconds." />
+                <LeadForm source={s.slug} defaultService={s.kicker} heading={s.formHeading} subheading="A recorded walkthrough within 48 hours, specific to your business. Free, and yours to keep." />
               </div>
             </div>
           </div>
@@ -486,7 +486,7 @@ export default function ServicePage({ service: s }: { service: ServiceData }) {
               </p>
             </div>
             <div className="lg:col-span-5 lg:col-start-8">
-              <LeadForm source={`${s.slug}-footer`} defaultService={s.kicker} heading="Is your city open?" />
+              <LeadForm source={`${s.slug}-footer`} defaultService={s.kicker} heading={s.formHeading} />
             </div>
           </div>
         </section>

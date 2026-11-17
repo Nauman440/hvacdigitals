@@ -6,7 +6,7 @@ import { LeadForm } from "@/components/site/LeadForm";
 import { SITE } from "@/lib/site";
 
 const STEPS = [
-  { t: "Within 1 business hour", d: "We check whether your city is open and confirm by text or email." },
+  { t: "Within 1 business hour", d: "We call or text you to confirm a few details about your business and service area." },
   { t: "A 15-minute call", d: "With Muhammad, the founder. About your shop, your season and your numbers. No script." },
   { t: "Within 48 hours", d: "A recorded walkthrough of your ads, Google profile and website, with the 3 fixes we'd make first." },
 ];
@@ -26,8 +26,8 @@ export default function ContactPage() {
               Let&apos;s look at your numbers.
             </h1>
             <p className="mt-6 max-w-[540px] text-[18px] md:text-[19px] leading-relaxed text-ink-2">
-              Tell us where you work and what you want more of. If your city is open, you&apos;ll get a free audit you can
-              keep, whether you hire us or not.
+              Leave your details and your website. You&apos;ll get a free recorded audit of your marketing that you can keep,
+              whether you hire us or not.
             </p>
 
             <ol className="mt-10 space-y-6">

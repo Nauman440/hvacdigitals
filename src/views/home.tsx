@@ -15,7 +15,7 @@ import {
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LeadForm } from "@/components/site/LeadForm";
-import { CityCheck, FaqList, LeadFeed, RoiCalculator, SeasonChart } from "@/components/site/Widgets";
+import { WebsiteCheck, FaqList, LeadFeed, RoiCalculator, SeasonChart } from "@/components/site/Widgets";
 import { SITE } from "@/lib/site";
 import { ProofSection } from "@/components/site/Proof";
 import { GENERAL_FAQS as FAQS } from "@/data/faqs";
@@ -91,7 +91,7 @@ function Hero() {
               href="#check"
               className="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-flame px-7 text-[17px] font-semibold text-white shadow-[0_12px_30px_-10px_rgba(232,89,12,0.7)] transition-colors hover:bg-flame-dark lg:hidden"
             >
-              Check if my city is open <ArrowRight className="h-5 w-5" />
+              Get my free audit <ArrowRight className="h-5 w-5" />
             </a>
             <a
               href={SITE.phoneHref}
@@ -415,12 +415,12 @@ function CityBand() {
       <div className={`${wrap} relative grid items-center gap-8 lg:grid-cols-12`}>
         <div className="lg:col-span-6">
           <h2 className="font-head text-[32px] md:text-[42px] font-extrabold leading-[1.05] tracking-[-0.03em] text-white">
-            We take one HVAC company per city. Is yours still open?
+            Drop in your website. We&apos;ll show you where the leads are leaking.
           </h2>
-          <p className="mt-3 text-[17px] text-white/85">Check in 30 seconds. If your city&apos;s taken, we&apos;ll tell you straight away.</p>
+          <p className="mt-3 text-[17px] text-white/85">Free recorded audit within 48 hours. No website yet? Leave it blank and we&apos;ll start with your Google profile.</p>
         </div>
         <div className="lg:col-span-6 lg:flex lg:justify-end">
-          <CityCheck />
+          <WebsiteCheck />
         </div>
       </div>
     </section>
@@ -683,7 +683,7 @@ function Calculator() {
         <RoiCalculator />
         <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           <a href="#check" className="inline-flex h-14 items-center gap-2 rounded-md bg-flame px-7 text-[17px] font-semibold text-white hover:bg-flame-dark">
-            Get real numbers for my city <ArrowRight className="h-5 w-5" />
+            Get real numbers for my business <ArrowRight className="h-5 w-5" />
           </a>
           <p className="text-[15px] text-paper/55">Free, within 48 hours.</p>
         </div>
@@ -813,7 +813,7 @@ function Pricing() {
                   p.popular ? "bg-flame text-white hover:bg-flame-dark" : "border border-ink/20 text-ink hover:border-ink"
                 }`}
               >
-                Check my city <ArrowRight className="h-4 w-4" />
+                Get my free audit <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           ))}
@@ -887,7 +887,7 @@ function FinalCta() {
           </ul>
         </div>
         <div className="lg:col-span-5 lg:col-start-8">
-          <LeadForm source="home-footer" heading="Is your city open?" />
+          <LeadForm source="home-footer" />
         </div>
       </div>
     </section>
