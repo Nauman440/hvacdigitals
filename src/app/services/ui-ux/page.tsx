@@ -1,5 +1,6 @@
 import { pageMetadata } from "@/lib/seo";
-import View from "@/views/services/ui-ux";
+import ServicePage from "@/views/service-page";
+import { SERVICES } from "@/data/services";
 
 export const metadata = pageMetadata({
   title: "HVAC UI/UX Design Texas | Convert Visitors to Calls | HVAC Digitals",
@@ -8,5 +9,5 @@ export const metadata = pageMetadata({
 });
 
 export default function Page() {
-  return <View />;
+  return <ServicePage service={SERVICES["ui-ux"]} />;
 }

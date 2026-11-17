@@ -25,7 +25,7 @@ export function Logo({ tone = "ink" }: { tone?: "ink" | "paper" }) {
 }
 
 const LINKS = [
-  { label: "Results", href: "/#results" },
+  { label: "Free audit", href: "/#audit" },
   { label: "Pricing", href: "/#pricing" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },

@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BadgeCheck,
   Check,
+  CirclePlay,
   MapPin,
   Phone,
   PhoneIncoming,
@@ -16,6 +17,8 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { LeadForm } from "@/components/site/LeadForm";
 import { CityCheck, FaqList, LeadFeed, RoiCalculator, SeasonChart } from "@/components/site/Widgets";
 import { SITE } from "@/lib/site";
+import { ProofSection } from "@/components/site/Proof";
+import { GENERAL_FAQS as FAQS } from "@/data/faqs";
 
 /** Legacy pages import these names; they now render the redesigned header and footer. */
 export const Navbar = SiteHeader;
@@ -51,14 +54,6 @@ function Stars({ className = "h-4 w-4" }: { className?: string }) {
     </span>
   );
 }
-
-const REVIEWS = [
-  { q: "Within 60 days they had us in the 3-pack for every Dallas zip code we service. Calendar's booked three weeks out.", n: "Marcus Reyes", r: "Reyes Heating & Cooling", i: "MR" },
-  { q: "LSA ads were bringing in calls inside week one. I'd been burned by three agencies before. These guys actually know HVAC.", n: "Sarah Jenkins", r: "Altitude Air", i: "SJ" },
-  { q: "The missed-call text-back alone saved us about $12k in jobs last month, when we were too busy to answer.", n: "David Chen", r: "Chen Climate Control", i: "DC" },
-  { q: "Every time someone searches AC repair in my zip code, we're the first thing they see. Revenue's up 40% on last year.", n: "Tom Mitchell", r: "Mitchell Mechanical", i: "TM" },
-  { q: "Stop wasting money on lead-sharing sites. They built us a brand that makes us look like the biggest player in South Texas.", n: "Greg Larsen", r: "Larsen & Sons HVAC", i: "GL" },
-];
 
 /* 1. Hero ----------------------------------------------------------------- */
 
@@ -107,22 +102,27 @@ function Hero() {
             </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <div className="flex -space-x-2.5" aria-hidden="true">
-              {REVIEWS.map((r, i) => (
-                <span
-                  key={r.i}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-ink font-head text-[13px] font-bold text-white"
-                  style={{ background: ["#E8590C", "#2F7FD8", "#2E7D4F", "#8A5A2B", "#5B4B8A"][i] }}
-                >
-                  {r.i}
-                </span>
+          <div className="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/founder-real.jpeg"
+                alt=""
+                width={96}
+                height={96}
+                className="h-12 w-12 rounded-full object-cover object-top ring-2 ring-flame"
+              />
+              <p className="text-[14px] leading-snug text-paper/70">
+                <span className="block font-semibold text-paper">Talk to Muhammad, the founder</span>
+                Not a sales rep. Not a call center.
+              </p>
+            </div>
+            <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-[14px] text-paper/70 sm:border-l sm:border-paper/15 sm:pl-5">
+              {["Free audit", "No contract", "You own your accounts"].map((x) => (
+                <li key={x} className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-flame" /> {x}
+                </li>
               ))}
-            </div>
-            <div>
-              <Stars />
-              <p className="mt-1 text-[14px] text-paper/65">Rated 5.0 by HVAC owners in Dallas, Houston, San Antonio &amp; Austin</p>
-            </div>
+            </ul>
           </div>
         </div>
 
@@ -142,7 +142,7 @@ function Hero() {
             <div className="text-[12px] leading-tight text-paper/70">
               Dallas, 3:42 PM
               <br />
-              <span className="text-paper">AC repair searches ↑ 4×</span>
+              <span className="text-paper">AC repair searches spike</span>
             </div>
           </div>
           <div className="rounded-xl ring-8 ring-paper/5">
@@ -158,9 +158,9 @@ function Hero() {
 
 function StatBand() {
   const stats = [
-    { n: "6.2×", l: "average return on ad spend", c: "text-flame" },
-    { n: "$18", l: "average cost per Google lead", c: "text-ink" },
-    { n: "< 60s", l: "to call back every new lead", c: "text-ice" },
+    { n: "48 hrs", l: "to your free recorded audit", c: "text-flame" },
+    { n: "< 60s", l: "automatic follow-up on every new lead", c: "text-ice" },
+    { n: "$0", l: "markup on your ad spend", c: "text-ink" },
     { n: "1", l: "HVAC company per city", c: "text-ink" },
   ];
   return (
@@ -200,8 +200,9 @@ function Leak() {
           <Kicker>Where the money goes</Kicker>
           <H2 className="mt-5">Most HVAC marketing doesn&apos;t fail at the ad. It fails after.</H2>
           <p className="mt-6 text-[17px] leading-relaxed text-ink-2">
-            Out of 100 people who click a typical HVAC ad, about 4 end up on the schedule. The rest called while your office was
-            on another line, got voicemail, or got a call back the next morning after they&apos;d already booked someone else.
+            In a lot of HVAC accounts, only a handful of every 100 ad clicks end up on the schedule. The rest called while your
+            office was on another line, got voicemail, or got a call back the next morning after they&apos;d already booked
+            someone else.
           </p>
           <p className="mt-4 text-[17px] font-semibold text-ink">So we fix the whole path, not just the ads.</p>
         </div>
@@ -209,8 +210,8 @@ function Leak() {
         <div className="lg:col-span-8">
           <div className="rounded-xl border border-line bg-white p-5 md:p-8">
             <div className="mb-2 flex flex-wrap items-center gap-5 text-[13px] text-ink-2">
-              <span className="flex items-center gap-2"><span className="h-2.5 w-5 rounded-sm bg-ink/20" /> Typical account we audit</span>
-              <span className="flex items-center gap-2"><span className="h-2.5 w-5 rounded-sm bg-flame" /> After 90 days with us</span>
+              <span className="flex items-center gap-2"><span className="h-2.5 w-5 rounded-sm bg-ink/20" /> A leaky setup</span>
+              <span className="flex items-center gap-2"><span className="h-2.5 w-5 rounded-sm bg-flame" /> Same budget, leaks fixed</span>
             </div>
             <ol className="divide-y divide-line">
               {LEAK.map((r, i) => (
@@ -235,7 +236,7 @@ function Leak() {
             </ol>
             <div className="mt-2 flex flex-col gap-3 rounded-lg bg-ink px-5 py-4 text-paper sm:flex-row sm:items-center sm:justify-between">
               <p className="text-[15px]">
-                Per 100 ad clicks, on the same budget: <span className="font-head text-[20px] font-extrabold text-flame">4 → 12 booked jobs</span>
+                Illustration per 100 ad clicks. <span className="font-semibold">Your audit shows where your own leads drop off.</span>
               </p>
               <a href="#check" className="text-[15px] font-semibold text-paper underline decoration-flame underline-offset-4 hover:text-flame">
                 Find my leaks →
@@ -510,93 +511,87 @@ function HowItWorks() {
   );
 }
 
-/* 8. Results + reviews ---------------------------------------------------- */
+/* 8. Free audit preview + real proof -------------------------------------- */
 
-function Results() {
+const AUDIT_COVERS = [
+  "Where your ad money goes: search terms, wasted clicks, and missing negative keywords",
+  "Your Google Business Profile vs. the top 3 in your area",
+  "How your site handles a homeowner on a phone: speed, tap-to-call, trust",
+  "What happens to a lead after they call or fill out a form",
+  "Which channels make sense for your city and season, with a budget range",
+  "The 3 fixes we'd make first, whether you hire us or not",
+];
+
+const SAMPLE_FINDINGS: { sev: "High" | "Medium"; t: string; d: string }[] = [
+  { sev: "High", t: "Ads showing for job-seeker searches", d: "“hvac jobs near me”, “hvac technician salary” and “hvac school” are getting clicks." },
+  { sev: "High", t: "Missed calls get no follow-up", d: "After-hours calls go to voicemail with no text-back." },
+  { sev: "Medium", t: "Ads send people to the homepage", d: "No service-specific landing page, and no tap-to-call button on mobile." },
+  { sev: "Medium", t: "Google profile missing services", d: "Heat pump and ductless aren't listed, so you don't show for those searches." },
+];
+
+function AuditPreview() {
   return (
-    <section id="results" className="scroll-mt-28 overflow-hidden bg-white pt-20 md:pt-28">
-      <div className={wrap}>
-        <Kicker>Results</Kicker>
-        <div className="mt-5 grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-6">
-            <H2>Dallas Bay HVAC: same budget, 5× cheaper leads.</H2>
-            <p className="mt-6 text-[17px] leading-relaxed text-ink-2">
-              They were spending $6,000 a month and couldn&apos;t trace 20 leads to it. 41% of the budget went to searches like
-              &ldquo;HVAC school&rdquo; and &ldquo;DIY AC fix.&rdquo; We rebuilt around Local Services Ads and focused search campaigns,
-              added call tracking, and set up text-back for missed calls.
-            </p>
-            <ol className="mt-8 space-y-4 border-l-2 border-line pl-6">
-              {[
-                ["Week 1", "Audit finds 41% of spend going to junk searches."],
-                ["Week 2", "LSAs verified, new campaigns live, every call tracked."],
-                ["Month 2", "Cost per lead down from $94 to $31."],
-                ["Month 3", "340 qualified leads in 90 days at $18 each."],
-              ].map(([t, d]) => (
-                <li key={t} className="relative">
-                  <span className="absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-white bg-flame" aria-hidden="true" />
-                  <p className="font-head text-[15px] font-bold text-ink">{t}</p>
-                  <p className="text-[15px] leading-relaxed text-ink-2">{d}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          <div className="lg:col-span-6">
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { k: "Cost per lead", b: "$94", a: "$18", accent: "bg-flame text-white" },
-                { k: "Trackable leads / mo", b: "< 20", a: "113", accent: "bg-ink text-paper" },
-                { k: "Return on ad spend", b: "unknown", a: "6.8×", accent: "bg-ink text-paper" },
-                { k: "Missed calls followed up", b: "0%", a: "100%", accent: "bg-ice text-white" },
-              ].map((s) => (
-                <div key={s.k} className={`rounded-xl p-5 md:p-6 ${s.accent}`}>
-                  <p className="text-[13px] opacity-75">{s.k}</p>
-                  <p className="tnum mt-3 font-head text-[40px] md:text-[48px] font-extrabold leading-none tracking-tight">{s.a}</p>
-                  <p className="tnum mt-2 text-[14px] opacity-70">
-                    was <span className="line-through">{s.b}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {[
-                { co: "San Antonio Cooling Pros", line: "First call 24 hours after launch. It was a $4,200 install." },
-                { co: "South Texas Air Systems", line: "189 leads in 60 days from Google + Facebook, at 5.9× return." },
-              ].map((c) => (
-                <div key={c.co} className="rounded-xl border border-line p-5">
-                  <p className="text-[14px] font-semibold text-ink">{c.co}</p>
-                  <p className="mt-1 text-[15px] leading-relaxed text-ink-2">{c.line}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Review wall */}
-      <div className="mt-20 border-t border-line bg-paper py-12">
-        <div className={`${wrap} mb-8 flex flex-wrap items-end justify-between gap-4`}>
-          <p className="font-head text-[26px] font-extrabold tracking-tight text-ink">What HVAC owners say</p>
-          <p className="flex items-center gap-2 text-[15px] text-ink-2"><Stars /> 5.0 average</p>
-        </div>
-        <div className="relative">
-          <div className="marquee flex w-max gap-5 px-4">
-            {[...REVIEWS, ...REVIEWS].map((r, i) => (
-              <figure key={i} className="w-[340px] shrink-0 rounded-xl border border-line bg-white p-6" aria-hidden={i >= REVIEWS.length}>
-                <Stars className="h-3.5 w-3.5" />
-                <blockquote className="mt-3 text-[16px] leading-relaxed text-ink">&ldquo;{r.q}&rdquo;</blockquote>
-                <figcaption className="mt-5 flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-head text-[12px] font-bold text-paper">{r.i}</span>
-                  <span className="text-[14px]">
-                    <span className="block font-semibold text-ink">{r.n}</span>
-                    <span className="text-ink-3">{r.r}</span>
-                  </span>
-                </figcaption>
-              </figure>
+    <section id="audit" className="scroll-mt-28 bg-white py-20 md:py-28">
+      <div className={`${wrap} grid items-start gap-14 lg:grid-cols-12`}>
+        <div className="lg:col-span-6">
+          <Kicker>Your free audit</Kicker>
+          <H2 className="mt-5">A recorded walkthrough of exactly where your leads leak.</H2>
+          <p className="mt-6 text-[17px] leading-relaxed text-ink-2">
+            Within 48 hours you get a screen-recorded video that goes through your ads, Google profile, website and lead
+            follow-up. Plain English, specific to your city, and yours to keep. Hire us, do it yourself, or hand it to your
+            current agency.
+          </p>
+          <ul className="mt-8 space-y-3">
+            {AUDIT_COVERS.map((x) => (
+              <li key={x} className="flex gap-3 text-[16px] leading-relaxed text-ink">
+                <Check className="mt-1 h-4 w-4 shrink-0 text-flame" /> {x}
+              </li>
             ))}
+          </ul>
+          <a
+            href="#check"
+            className="mt-10 inline-flex h-14 items-center gap-2 rounded-md bg-flame px-7 text-[17px] font-semibold text-white transition-colors hover:bg-flame-dark"
+          >
+            Get my free audit <ArrowRight className="h-5 w-5" />
+          </a>
+        </div>
+
+        <div className="lg:col-span-6">
+          <div className="overflow-hidden rounded-xl border border-line bg-paper shadow-[0_30px_60px_-30px_rgba(20,26,33,0.35)]">
+            <div className="relative flex aspect-[16/8] items-center justify-center bg-ink">
+              <div className="vent-lines absolute inset-0" aria-hidden="true" />
+              <div className="relative flex items-center gap-4">
+                <CirclePlay className="h-14 w-14 text-flame" strokeWidth={1.5} />
+                <div>
+                  <p className="font-head text-[20px] font-bold text-paper">Your audit walkthrough</p>
+                  <p className="tnum text-[14px] text-paper/60">Recorded video · usually 15–20 min</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-5 md:p-6">
+              <div className="flex items-center justify-between">
+                <p className="text-[14px] font-semibold text-ink">Sample findings</p>
+                <p className="text-[12px] text-ink-3">Example of what we look for</p>
+              </div>
+              <ul className="mt-4 space-y-3">
+                {SAMPLE_FINDINGS.map((f) => (
+                  <li key={f.t} className="flex gap-3 rounded-lg bg-white p-4 ring-1 ring-line">
+                    <span
+                      className={`h-fit shrink-0 rounded px-1.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.04em] ${
+                        f.sev === "High" ? "bg-flame/10 text-flame" : "bg-ice/10 text-ice"
+                      }`}
+                    >
+                      {f.sev}
+                    </span>
+                    <div>
+                      <p className="text-[15px] font-semibold text-ink">{f.t}</p>
+                      <p className="mt-0.5 text-[14px] leading-snug text-ink-2">{f.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-paper to-transparent" aria-hidden="true" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-paper to-transparent" aria-hidden="true" />
         </div>
       </div>
     </section>
@@ -607,13 +602,13 @@ function Results() {
 
 function Compare() {
   const rows: [string, string, string][] = [
-    ["Who you work with", "Only HVAC, only Texas", "Dentists, roofers, lawyers, you"],
+    ["Who they work with", "Only HVAC, only Texas", "Dentists, roofers, lawyers, and you"],
     ["What they report", "Booked jobs and cost per job", "Impressions and click-through rate"],
     ["Who owns the ad accounts", "You do, always", "Often the agency"],
     ["How they get paid", "Flat monthly fee", "A percentage of your ad spend"],
     ["Your competitors", "Never in your city", "Often their other clients"],
     ["Speed-to-lead follow-up", "Included, set up on day one", "“That's your office's job”"],
-    ["Contract", "No long-term contract", "12 months, with a cancellation fee"],
+    ["Contract", "No long-term contract", "Long contracts with cancellation fees"],
   ];
   return (
     <section className="bg-paper-2/60 py-20 md:py-28">
@@ -626,7 +621,7 @@ function Compare() {
           <div className="grid grid-cols-[1fr_1fr] md:grid-cols-[1.1fr_1fr_1fr]">
             <div className="hidden md:block border-b border-line p-5" />
             <div className="border-b border-line bg-ink p-5 font-head text-[18px] font-extrabold text-paper">HVAC Digitals</div>
-            <div className="border-b border-line p-5 font-head text-[18px] font-bold text-ink-3">Typical agency</div>
+            <div className="border-b border-line p-5 font-head text-[18px] font-bold text-ink-3">What many agencies do</div>
             {rows.map(([k, us, them]) => (
               <div key={k} className="contents">
                 <div className="col-span-2 border-b border-line bg-paper/50 px-5 pt-4 pb-1 text-[13px] font-semibold uppercase tracking-[0.06em] text-ink-3 md:col-span-1 md:bg-transparent md:py-5 md:text-[15px] md:font-semibold md:normal-case md:tracking-normal md:text-ink">
@@ -717,7 +712,7 @@ function Founder() {
             />
             <div className="absolute -bottom-5 left-5 right-5 rounded-lg bg-ink px-4 py-3 text-paper shadow-lg">
               <p className="font-head text-[17px] font-bold">Muhammad Nauman</p>
-              <p className="text-[13px] text-paper/60">Founder. You&apos;ll have his cell number.</p>
+              <p className="text-[13px] text-paper/60">Founder. Your first call is with him.</p>
             </div>
           </div>
         </div>
@@ -845,32 +840,6 @@ function Pricing() {
 
 /* 14. FAQ ----------------------------------------------------------------- */
 
-const FAQS = [
-  {
-    q: "How fast will I get leads?",
-    a: "Google Search and Local Services Ads usually produce calls within the first week, often the first 48 hours. Meta campaigns take 3–5 days to find their footing. SEO and the Map Pack are the slow, compounding part: expect real movement in 60–120 days.",
-  },
-  {
-    q: "What does it cost all-in?",
-    a: "Our flat fee plus your ad spend. Most single-city shops spend $2,000–$5,000 a month on ads. We'll recommend a number for your market in the audit and explain why. We don't take a percentage of spend.",
-  },
-  {
-    q: "Do I have to sign a long contract?",
-    a: "No. There's no long-term contract. We ask for 90 days to judge the results fairly, because the first month is mostly setup and testing, but you can leave whenever you want and keep everything we built.",
-  },
-  {
-    q: "Will you work with my competitor?",
-    a: "No. One HVAC company per city or service area. If your city is taken, we'll tell you straight away and won't waste your time.",
-  },
-  {
-    q: "Are Facebook leads any good for HVAC?",
-    a: "For emergency repair, no. That's what Google is for. For tune-ups, maintenance plans and replacement offers, Meta is usually your cheapest lead source, as long as someone contacts the lead within minutes. That's why speed-to-lead is part of every plan.",
-  },
-  {
-    q: "I've been burned by an agency before. What's different?",
-    a: "You own the accounts, we report booked jobs instead of clicks, and there's no contract keeping you here. If the numbers aren't working, you'll see it in the Monday report before we have to tell you.",
-  },
-];
 
 function Faq() {
   return (
@@ -945,7 +914,8 @@ export default function Home() {
         <CityBand />
         <WhatYouSee />
         <HowItWorks />
-        <Results />
+        <AuditPreview />
+        <ProofSection />
         <Compare />
         <Seasons />
         <Calculator />

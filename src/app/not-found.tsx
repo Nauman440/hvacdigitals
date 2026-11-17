@@ -1,40 +1,31 @@
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
-import { Navbar, Footer } from "@/views/home";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { SITE } from "@/lib/site";
 
-export const metadata = { title: "Page Not Found" };
+export const metadata = { title: "Page not found" };
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
-      <Navbar />
-      <main className="relative overflow-hidden pt-40 pb-28">
-        <div className="absolute top-0 left-1/4 w-[700px] h-[700px] rounded-full bg-primary/12 blur-[180px] pointer-events-none" />
-        <div className="container relative mx-auto px-4 md:px-6 text-center max-w-2xl">
-          <p className="font-display text-8xl md:text-9xl text-primary leading-none mb-4">404</p>
-          <h1 className="font-display text-4xl md:text-5xl uppercase tracking-tight text-white mb-4">
-            This page blew a fuse.
-          </h1>
-          <p className="text-zinc-400 text-lg mb-10">
-            The page you're looking for doesn't exist or has moved. Let's get you back to booking more HVAC jobs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider text-sm"
-            >
-              Back to Home <ArrowRight className="w-4 h-4" />
+    <div className="min-h-screen bg-paper font-sans text-ink">
+      <SiteHeader />
+      <main className="pt-[140px] pb-28 md:pt-[180px]">
+        <div className="mx-auto max-w-2xl px-4 text-center md:px-6">
+          <p className="tnum font-head text-[120px] md:text-[160px] font-extrabold leading-none tracking-[-0.06em] text-flame">404</p>
+          <h1 className="mt-4 font-head text-[36px] md:text-[48px] font-extrabold tracking-[-0.03em]">This page blew a fuse.</h1>
+          <p className="mt-4 text-[18px] text-ink-2">It doesn&apos;t exist or it moved. Let&apos;s get you back to booking more HVAC jobs.</p>
+          <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link href="/" className="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-flame px-7 text-[17px] font-semibold text-white hover:bg-flame-dark">
+              Back to home <ArrowRight className="h-5 w-5" />
             </Link>
-            <a
-              href="tel:8885554822"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md border-2 border-white/20 text-white hover:border-primary hover:text-primary font-bold uppercase tracking-wider text-sm"
-            >
-              <Phone className="w-4 h-4" /> (888) 555-4822
+            <a href={SITE.phoneHref} className="inline-flex h-14 items-center justify-center gap-2 rounded-md border border-ink/20 px-7 text-[17px] font-semibold text-ink hover:border-ink">
+              <Phone className="h-4 w-4" /> <span className="tnum">{SITE.phone}</span>
             </a>
           </div>
         </div>
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

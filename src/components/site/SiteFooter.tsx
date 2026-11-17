@@ -44,7 +44,7 @@ export function SiteFooter() {
               {[
                 ["About", "/about"],
                 ["How we work", "/process"],
-                ["Results", "/#results"],
+                ["Free audit", "/#audit"],
                 ["Pricing", "/#pricing"],
                 ["FAQ", "/faq"],
                 ["Blog", "/blog"],

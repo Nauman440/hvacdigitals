@@ -116,7 +116,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: "We audit approximately 40 HVAC company GBP profiles per year. In 92% of them, we find NAP (Name, Address, Phone) inconsistencies across major directories. The most common culprits are a previous phone number still live on Yelp, a suite number included on some listings and excluded on others, and business name variations ('Cool Air HVAC' vs 'Cool Air HVAC LLC' vs 'Cool Air Heating and Cooling').",
+        text: "NAP (Name, Address, Phone) inconsistencies across major directories are one of the most common problems we find when we review an HVAC company's Google Business Profile. The most common culprits are a previous phone number still live on Yelp, a suite number included on some listings and excluded on others, and business name variations ('Cool Air HVAC' vs 'Cool Air HVAC LLC' vs 'Cool Air Heating and Cooling').",
       },
       {
         type: "p",
@@ -164,11 +164,11 @@ export const BLOG_POSTS: BlogPost[] = [
     content: [
       {
         type: "p",
-        text: "A Texas HVAC company called us in March paying $187 per Google Ads lead. They had been running ads for 14 months and assumed they simply needed a bigger market or a lower-cost industry. Within 60 days of restructuring their campaigns, their cost per lead dropped to $44 — with the same monthly budget and the same service area.",
+        text: "It's common for an HVAC company to run Google Ads for a year or more, see a cost per lead approaching $200, and conclude that their market is simply too expensive. In most cases the market isn't the problem. The account structure is, and fixing it lowers cost per lead without raising the budget or changing the service area.",
       },
       {
         type: "p",
-        text: "This is not an unusual result. The structural problems we encounter in HVAC Google Ads accounts are remarkably consistent, regardless of the agency or marketing coordinator who set them up. Here are the three most common — and how to fix each one.",
+        text: "The structural problems we encounter in HVAC Google Ads accounts are remarkably consistent, regardless of the agency or marketing coordinator who set them up. Here are the three most common — and how to fix each one.",
       },
       {
         type: "h2",
@@ -216,7 +216,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Every Google Ads campaign needs its own dedicated landing page. The emergency AC repair campaign needs a page that opens with 'Emergency AC Repair — Dallas Bay Area — Same Day Service.' The AC installation campaign needs a page focused on installation. Each page should have one goal (generate a call or form fill), a headline that exactly matches the ad copy, and social proof specific to that service. Remove navigation menus from ad landing pages — they give visitors an exit route that kills conversions.",
+        text: "Every Google Ads campaign needs its own dedicated landing page. The emergency AC repair campaign needs a page that opens with 'Emergency AC Repair — Dallas Area — Same Day Service.' The AC installation campaign needs a page focused on installation. Each page should have one goal (generate a call or form fill), a headline that exactly matches the ad copy, and social proof specific to that service. Remove navigation menus from ad landing pages — they give visitors an exit route that kills conversions.",
       },
       {
         type: "h2",
@@ -279,7 +279,7 @@ export const BLOG_POSTS: BlogPost[] = [
         stats: [
           { val: "53%", label: "Mobile users who leave if page takes 3+ seconds" },
           { val: "21", label: "Average Google PageSpeed score for Wix-built HVAC sites" },
-          { val: "90+", label: "PageSpeed score HVAC Digitals builds achieve at launch" },
+          { val: "90+", label: "Mobile PageSpeed score we build every site to target" },
         ],
       },
       {

@@ -1,7 +1,12 @@
+// ⚠️ PLACEHOLDER: replace PHONE_DIGITS with your real 10-digit business number.
+// Everything on the site (buttons, header, footer, forms, Google structured data) reads from here.
+const PHONE_DIGITS = "8885554822";
+
 export const SITE = {
   name: "HVAC Digitals",
-  phone: "(888) 555-4822",
-  phoneHref: "tel:+18885554822",
+  phone: `(${PHONE_DIGITS.slice(0, 3)}) ${PHONE_DIGITS.slice(3, 6)}-${PHONE_DIGITS.slice(6)}`,
+  phoneHref: `tel:+1${PHONE_DIGITS}`,
+  phoneE164: `+1${PHONE_DIGITS}`,
   email: "hello@hvacdigitals.com",
   hours: "Mon–Fri, 7am–7pm CT",
   city: "Dallas, TX",

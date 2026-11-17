@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { SITE } from "@/lib/site";
 
 /**
  * Lead capture endpoint. Every form on the site POSTs here.
@@ -130,7 +131,7 @@ export async function POST(req: Request) {
   if (!delivered) {
     if (failures.length > 0) {
       return NextResponse.json(
-        { success: false, error: "We couldn't submit your request. Please call (888) 555-4822." },
+        { success: false, error: `We couldn't submit your request. Please call ${SITE.phone}.` },
         { status: 502 },
       );
     }

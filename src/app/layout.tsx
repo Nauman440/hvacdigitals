@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Archivo, Instrument_Sans } from "next/font/google";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { GA_ID, GSC_VERIFICATION, ROBOTS, SITE_URL, SITE_NAME } from "@/lib/seo";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 
 const body = Instrument_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
@@ -46,8 +45,8 @@ const orgJsonLd = {
       },
       areaServed: { "@type": "State", name: "Texas" },
       address: { "@type": "PostalAddress", addressLocality: "Dallas", addressRegion: "TX", addressCountry: "US" },
-      telephone: "+18885554822",
-      email: "hello@hvacdigitals.com",
+      telephone: SITE.phoneE164,
+      email: SITE.email,
       sameAs: ["https://www.linkedin.com/in/nauman-ai-automation-expert/"],
       knowsAbout: [
         "HVAC Marketing",
@@ -77,10 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <TooltipProvider>
-          {children}
-          <Toaster />
-        </TooltipProvider>
+        {children}
         {GA_ID ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />

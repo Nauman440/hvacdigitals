@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check, ChevronRight, MapPin, MoreHorizontal, Phone, Star, ThumbsUp, X } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, CirclePlay, Heart, MapPin, MessageCircle, MoreHorizontal, Phone, Star, ThumbsUp, X } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { LeadForm } from "@/components/site/LeadForm";
@@ -8,6 +8,7 @@ import type { ServiceData } from "@/data/services";
 import { SERVICES } from "@/data/services";
 import { SITE } from "@/lib/site";
 import { SITE_URL } from "@/lib/seo";
+import { ProofSection } from "@/components/site/Proof";
 
 const wrap = "mx-auto max-w-[1240px] px-4 md:px-6";
 
@@ -180,7 +181,82 @@ function OrganicMock() {
   );
 }
 
-const MOCKS = { google: GoogleMock, meta: MetaMock, map: MapMock, organic: OrganicMock };
+function SiteMock() {
+  return (
+    <div className="mx-auto w-[300px] rounded-[36px] border-[10px] border-ink bg-white shadow-[0_30px_60px_-30px_rgba(20,26,33,0.45)]">
+      <div className="overflow-hidden rounded-[26px] font-sans text-ink">
+        <div className="flex items-center justify-between bg-ink px-4 py-3 text-paper">
+          <span className="font-head text-[14px] font-bold">Your Company</span>
+          <span className="flex items-center gap-1 rounded bg-flame px-2 py-1 text-[11px] font-bold text-white"><Phone className="h-3 w-3" /> Call</span>
+        </div>
+        <div className="bg-paper p-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-3">AC repair · Plano</p>
+          <p className="mt-1 font-head text-[22px] font-extrabold leading-[1.05] tracking-tight">AC out? A tech at your door today.</p>
+          <p className="mt-2 flex items-center gap-1 text-[12px] text-ink-2">
+            <span className="flex text-[#F5B301]">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}</span>
+            4.9 · 212 Google reviews
+          </p>
+          <span className="mt-4 flex h-11 items-center justify-center gap-2 rounded-md bg-flame text-[14px] font-semibold text-white"><Phone className="h-4 w-4" /> Call (214) 555-0100</span>
+          <span className="mt-2 flex h-10 items-center justify-center rounded-md border border-line bg-white text-[13px] font-semibold">Book online</span>
+        </div>
+        <ul className="space-y-2 p-4 text-[12px] text-ink-2">
+          {["Upfront pricing before work starts", "Licensed & insured", "Serving Plano, Frisco & Allen"].map((x) => (
+            <li key={x} className="flex gap-2"><Check className="h-3.5 w-3.5 shrink-0 text-moss" /> {x}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function SmsMock() {
+  return (
+    <div className="mx-auto max-w-[380px] rounded-xl border border-line bg-white p-5 font-sans shadow-[0_30px_60px_-30px_rgba(20,26,33,0.3)]">
+      <div className="flex items-center gap-2 border-b border-line pb-3">
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-paper-2 text-[12px] font-bold text-ink">BK</span>
+        <div>
+          <p className="text-[14px] font-semibold text-ink">Brenda K.</p>
+          <p className="text-[11px] text-ink-3">Missed call · 6:42 PM</p>
+        </div>
+      </div>
+      <div className="mt-4 space-y-2.5 text-[13px]">
+        <div className="ml-auto max-w-[85%] rounded-lg rounded-br-sm bg-ice px-3 py-2 text-white">Hi Brenda, this is Cool Air. Sorry we missed your call! Is your AC not cooling? We can come out tonight or first thing tomorrow.</div>
+        <p className="text-right text-[11px] text-ink-3">Sent automatically, 8 seconds after the missed call</p>
+        <div className="max-w-[70%] rounded-lg rounded-bl-sm bg-paper-2 px-3 py-2 text-ink">Tomorrow morning works. It&apos;s blowing warm air.</div>
+        <div className="ml-auto max-w-[85%] rounded-lg rounded-br-sm bg-ice px-3 py-2 text-white">Got it. You&apos;re booked for 8–10 AM. Jake will text when he&apos;s on the way.</div>
+        <p className="flex items-center justify-end gap-1 text-[11px] font-semibold text-moss"><Check className="h-3 w-3" /> Booked</p>
+      </div>
+    </div>
+  );
+}
+
+function SocialMock() {
+  return (
+    <div className="mx-auto max-w-[380px] overflow-hidden rounded-xl border border-line bg-white font-sans text-ink shadow-[0_30px_60px_-30px_rgba(20,26,33,0.3)]">
+      <div className="flex items-center gap-2.5 p-3.5">
+        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-head text-[12px] font-bold text-paper">YC</span>
+        <div className="flex-1">
+          <p className="text-[14px] font-semibold leading-tight">yourcompany.hvac</p>
+          <p className="text-[12px] text-ink-3">Plano, Texas</p>
+        </div>
+        <MoreHorizontal className="h-5 w-5 text-ink-3" />
+      </div>
+      <div className="relative flex aspect-square items-end bg-[linear-gradient(160deg,#2b3540,#141A21)] p-4">
+        <CirclePlay className="absolute left-1/2 top-1/2 h-14 w-14 -translate-x-1/2 -translate-y-1/2 text-paper/80" strokeWidth={1.5} />
+        <div>
+          <p className="font-head text-[22px] font-extrabold leading-tight text-paper">Changing a filter takes 2 minutes.</p>
+          <p className="mt-1 text-[13px] text-paper/70">Jake shows you how · Reel, 0:42</p>
+        </div>
+      </div>
+      <div className="flex items-center gap-4 px-3.5 pt-3 text-ink-2">
+        <Heart className="h-5 w-5" /> <MessageCircle className="h-5 w-5" />
+      </div>
+      <p className="px-3.5 pb-3.5 pt-2 text-[13px]"><span className="font-semibold">yourcompany.hvac</span> Spring tip from our team: swap your filter before the first hot week. Need a tune-up? Link in bio.</p>
+    </div>
+  );
+}
+
+const MOCKS = { google: GoogleMock, meta: MetaMock, map: MapMock, organic: OrganicMock, site: SiteMock, sms: SmsMock, social: SocialMock };
 
 /* Page ------------------------------------------------------------------- */
 
@@ -250,7 +326,7 @@ export default function ServicePage({ service: s }: { service: ServiceData }) {
                   ))}
                 </dl>
               </div>
-              <div className="lg:col-span-5 lg:sticky lg:top-[130px]">
+              <div className="lg:col-span-5 lg:sticky lg:top-[130px] scroll-mt-32" id="top-form">
                 <LeadForm source={s.slug} defaultService={s.kicker} heading={s.formHeading} subheading="One HVAC company per city. Two quick steps, about 30 seconds." />
               </div>
             </div>
@@ -339,28 +415,38 @@ export default function ServicePage({ service: s }: { service: ServiceData }) {
           </div>
         </section>
 
-        {/* Proof */}
+        {/* Audit */}
         <section className="bg-white py-20 md:py-28">
-          <div className={`${wrap} grid gap-12 lg:grid-cols-12`}>
-            <div className="lg:col-span-7">
-              <Kicker>Proof</Kicker>
-              <h2 className="mt-5 font-head text-[32px] md:text-[42px] font-extrabold leading-[1.08] tracking-[-0.03em]">{s.proof.headline}</h2>
-              <p className="mt-6 text-[17px] leading-relaxed text-ink-2">{s.proof.body}</p>
-              <figure className="mt-10 border-l-2 border-flame pl-6">
-                <blockquote className="text-[20px] leading-relaxed text-ink">&ldquo;{s.proof.quote}&rdquo;</blockquote>
-                <figcaption className="mt-3 text-[14px] text-ink-3">{s.proof.who}</figcaption>
-              </figure>
+          <div className={`${wrap} grid items-start gap-12 lg:grid-cols-12`}>
+            <div className="lg:col-span-6">
+              <Kicker>Your free audit</Kicker>
+              <h2 className="mt-5 font-head text-[34px] md:text-[46px] font-extrabold leading-[1.05] tracking-[-0.03em]">
+                See what&apos;s working and what isn&apos;t, before you spend a dollar with us.
+              </h2>
+              <p className="mt-6 text-[17px] leading-relaxed text-ink-2">
+                Within 48 hours you get a recorded video walkthrough, specific to your business and your city. It&apos;s yours to
+                keep, whether you hire us or not.
+              </p>
+              <a href="#top-form" className="mt-8 inline-flex h-14 items-center gap-2 rounded-md bg-flame px-7 text-[17px] font-semibold text-white hover:bg-flame-dark">
+                Get my free audit <ArrowRight className="h-5 w-5" />
+              </a>
             </div>
-            <dl className="divide-y divide-line self-start rounded-lg border border-line lg:col-span-5">
-              {s.proof.numbers.map(([n, l]) => (
-                <div key={l} className="flex items-baseline justify-between gap-6 px-6 py-5">
-                  <dt className="text-[15px] text-ink-2">{l}</dt>
-                  <dd className="tnum font-head text-[34px] font-extrabold tracking-tight">{n}</dd>
-                </div>
-              ))}
-            </dl>
+            <div className="rounded-xl border border-line bg-paper p-6 md:p-8 lg:col-span-6">
+              <p className="text-[14px] font-semibold text-ink">What the audit covers</p>
+              <ul className="mt-5 space-y-4">
+                {s.audit.map((a, i) => (
+                  <li key={a} className="flex gap-4">
+                    <span className="tnum flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink font-head text-[13px] font-bold text-paper">{i + 1}</span>
+                    <span className="pt-0.5 text-[16px] leading-relaxed text-ink">{a}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 border-t border-line pt-4 text-[14px] text-ink-3">Plus the 3 fixes we&apos;d make first.</p>
+            </div>
           </div>
         </section>
+
+        <ProofSection service={s.slug} />
 
         {/* FAQ */}
         <section className="bg-paper py-20 md:py-28">

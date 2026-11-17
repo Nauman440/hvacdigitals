@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function Page({ params }: Props) {
   const { slug } = await params;
-  if (!getPost(slug)) notFound();
-  return <BlogPostView />;
+  const post = getPost(slug);
+  if (!post) notFound();
+  return <BlogPostView post={post} />;
 }
