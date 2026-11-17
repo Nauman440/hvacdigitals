@@ -42,6 +42,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Navbar, Footer } from "@/views/home";
 import { PricingSection } from "@/components/PricingSection";
+import { ConsentNote } from "@/components/site/ConsentNote";
 
 // =============================================================================
 // HERO LEAD FORM (2-step)
@@ -228,8 +229,9 @@ const HeroLeadForm = () => {
       </form>
 
       <p className="text-[11px] text-white/40 text-center mt-4 leading-snug">
-        100% free. No obligation. We will never spam you or share your info.
+        100% free. No obligation.
       </p>
+      <ConsentNote tone="dark" className="mt-2 text-center" />
     </div>
   );
 };

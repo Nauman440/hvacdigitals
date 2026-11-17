@@ -3,6 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Loader2, Lock } from "lucide-react";
 import { SITE } from "@/lib/site";
+import { CONSENT_TEXT, ConsentNote } from "./ConsentNote";
 
 type Props = {
   /** Where the form sits, sent with the lead (e.g. "home-hero", "meta-ads"). */
@@ -104,7 +105,7 @@ export function LeadForm({
           company,
           service: defaultService || "Free audit",
           budget,
-          message: `City/area: ${city}\nWants more: ${goal}\nCurrent ad spend: ${budget || "n/a"}\nForm: ${source}`,
+          message: `City/area: ${city}\nWants more: ${goal}\nCurrent ad spend: ${budget || "n/a"}\nForm: ${source}\nConsent (calls/texts): agreed on submit to: "${CONSENT_TEXT}"`,
           website_url: trap,
         }),
       });
@@ -277,11 +278,12 @@ export function LeadForm({
               {sending ? "Sending…" : "Get my free audit"}
             </button>
           </div>
+          <ConsentNote tone={dark ? "dark" : "light"} />
         </div>
       )}
 
       <p className={`mt-4 flex items-center gap-1.5 text-[13px] ${dark ? "text-paper/50" : "text-ink-3"}`}>
-        <Lock className="h-3.5 w-3.5" /> No contracts, no spam. We never share your number.
+        <Lock className="h-3.5 w-3.5" /> No contracts. We never sell or share your information.
       </p>
     </form>
   );

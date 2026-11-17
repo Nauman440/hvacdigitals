@@ -76,7 +76,10 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-paper/10 pt-6 text-[13px] text-paper/45 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} HVAC Digitals. Dallas, Texas.</p>
-          <p>You own your ad accounts, your website and your data. Always.</p>
+          <nav aria-label="Legal" className="flex gap-5">
+            <Link href="/privacy" className="hover:text-paper">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-paper">Terms of Use</Link>
+          </nav>
         </div>
       </div>
       <MobileActionBar />
