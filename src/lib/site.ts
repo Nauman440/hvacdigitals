@@ -1,6 +1,6 @@
-// ⚠️ PLACEHOLDER: replace PHONE_DIGITS with your real 10-digit business number.
+// Business phone number (10 digits, no country code).
 // Everything on the site (buttons, header, footer, forms, Google structured data) reads from here.
-const PHONE_DIGITS = "8885554822";
+const PHONE_DIGITS = "9048174781";
 
 export const SITE = {
   name: "HVAC Digitals",
