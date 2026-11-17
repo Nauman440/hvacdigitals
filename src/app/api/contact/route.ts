@@ -56,8 +56,8 @@ async function sendWebhook(lead: Omit<Lead, "website_url">, meta: Record<string,
 
 async function sendEmail(lead: Omit<Lead, "website_url">, meta: Record<string, string>) {
   const key = process.env.RESEND_API_KEY;
-  const to = process.env.LEAD_NOTIFY_EMAIL;
-  if (!key || !to) return false;
+  if (!key) return false;
+  const to = process.env.LEAD_NOTIFY_EMAIL || SITE.email;
   const rows: [string, string][] = [
     ["Name", lead.name],
     ["Email", lead.email],
@@ -88,8 +88,17 @@ async function sendEmail(lead: Omit<Lead, "website_url">, meta: Record<string, s
       html,
     }),
   });
-  if (!res.ok) throw new Error(`Resend responded ${res.status}`);
+  if (!res.ok) throw new Error(`Resend responded ${res.status}: ${(await res.text()).slice(0, 300)}`);
   return true;
+}
+
+/** Quick health check: which delivery channels are configured (never reveals secrets). */
+export async function GET() {
+  return NextResponse.json({
+    email: Boolean(process.env.RESEND_API_KEY),
+    emailTo: process.env.RESEND_API_KEY ? (process.env.LEAD_NOTIFY_EMAIL || SITE.email).replace(/^(.{2}).*(@.*)$/, "$1…$2") : null,
+    webhook: Boolean(process.env.LEAD_WEBHOOK_URL),
+  });
 }
 
 export async function POST(req: Request) {
@@ -135,8 +144,15 @@ export async function POST(req: Request) {
         { status: 502 },
       );
     }
-    // No delivery channel configured (local dev): log it so it isn't lost.
-    console.info("[lead] (no LEAD_WEBHOOK_URL / RESEND_API_KEY configured)", JSON.stringify({ ...lead, ...meta }));
+    // No delivery channel configured. Log it so it isn't lost, and on the live site tell the
+    // visitor to call instead of pretending the lead went somewhere.
+    console.error("[lead] NOT DELIVERED: set RESEND_API_KEY or LEAD_WEBHOOK_URL", JSON.stringify({ ...lead, ...meta }));
+    if (process.env.NODE_ENV === "production") {
+      return NextResponse.json(
+        { success: false, error: `Our form is temporarily unavailable. Please call ${SITE.phone}.` },
+        { status: 503 },
+      );
+    }
   }
 
   return NextResponse.json({ success: true });
