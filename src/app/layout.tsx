@@ -3,13 +3,12 @@ import Script from "next/script";
 import { Archivo, Instrument_Sans } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import { GA_ID, GSC_VERIFICATION, ROBOTS, SITE_URL, SITE_NAME } from "@/lib/seo";
 import "./globals.css";
 
 const body = Instrument_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -18,6 +17,8 @@ export const metadata: Metadata = {
     "Grow your HVAC business in Texas with full-stack digital marketing — Google Ads, Meta Ads, local SEO, AEO, and websites built exclusively for HVAC contractors.",
   applicationName: SITE_NAME,
   icons: { icon: "/favicon.svg" },
+  robots: ROBOTS,
+  ...(GSC_VERIFICATION ? { verification: { google: GSC_VERIFICATION } } : {}),
 };
 
 export const viewport: Viewport = {

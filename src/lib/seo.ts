@@ -5,6 +5,22 @@ export const SITE_NAME = "HVAC Digitals";
 export const TWITTER_HANDLE = "@hvacdigitals";
 export const DEFAULT_OG_IMAGE = "/opengraph.jpg";
 
+/**
+ * Every page is crawlable and indexable. Only an explicit NEXT_PUBLIC_ALLOW_INDEXING=false
+ * (e.g. on a staging deploy) switches the whole site to noindex.
+ */
+export const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING !== "false";
+
+export const ROBOTS: Metadata["robots"] = ALLOW_INDEXING
+  ? { index: true, follow: true }
+  : { index: false, follow: true, googleBot: { index: false, follow: true } };
+
+/** Google Analytics 4 measurement ID (from the original site). Override with NEXT_PUBLIC_GA_ID. */
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-PND6GXQJ17";
+
+/** Search Console "HTML tag" verification code: just the content="…" value. */
+export const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION || "";
+
 type PageSeo = {
   title: string;
   description: string;
@@ -20,7 +36,7 @@ export function pageMetadata({ title, description, path, ogImage = DEFAULT_OG_IM
     title: { absolute: title },
     description,
     alternates: { canonical: url },
-    robots: { index: true, follow: true },
+    robots: ROBOTS,
     openGraph: {
       title,
       description,
