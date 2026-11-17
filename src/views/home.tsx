@@ -76,15 +76,14 @@ function Hero() {
             Marketing for HVAC contractors in Texas, nothing else
           </p>
 
-          <h1 className="mt-8 font-head text-[48px] leading-[0.98] sm:text-[64px] lg:text-[84px] font-extrabold tracking-[-0.045em] text-paper">
-            Full trucks in <span className="text-flame">July.</span>
-            <br />
-            And in <span className="text-ice-light">February.</span>
+          <h1 className="mt-8 font-head text-[44px] leading-[1.02] sm:text-[60px] lg:text-[42px] xl:text-[52px] font-extrabold tracking-[-0.04em] text-paper">
+            More <span className="whitespace-nowrap text-flame">booked HVAC jobs</span>
+            <br className="hidden lg:block" /> from Google and Facebook.
           </h1>
 
           <p className="mt-8 max-w-[600px] text-[18px] md:text-[21px] leading-relaxed text-paper/75">
-            We run Google Ads, Facebook &amp; Instagram ads and local SEO for HVAC companies, then make sure every lead gets a
-            call back in under a minute. We judge ourselves on one number: <span className="font-semibold text-paper">booked jobs</span>.
+            We run Google Ads, Facebook ads and local SEO for Texas HVAC companies, and follow up every lead in under a minute.
+            We judge ourselves on one number: <span className="font-semibold text-paper">booked jobs</span>.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -128,7 +127,7 @@ function Hero() {
 
         <div className="relative lg:col-span-5" id="check">
           {/* Floating proof chips around the form */}
-          <div className="float-y absolute -left-10 -top-7 z-10 hidden items-center gap-3 rounded-lg bg-white px-4 py-3 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] md:flex">
+          <div className="float-y absolute -left-10 -top-7 z-10 hidden items-center gap-3 rounded-lg bg-white px-4 py-3 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] lg:flex">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-moss/10 text-moss">
               <PhoneIncoming className="h-4 w-4" />
             </span>
@@ -137,7 +136,7 @@ function Hero() {
               <p className="text-[12px] text-ink-3">Plano · from Google · just now</p>
             </div>
           </div>
-          <div className="float-y absolute -bottom-16 right-6 z-10 hidden items-center gap-3 rounded-lg bg-ink-2 px-4 py-3 text-paper shadow-[0_20px_40px_-15px_rgba(0,0,0,0.6)] ring-1 ring-paper/10 md:flex [animation-delay:1.2s]">
+          <div className="float-y absolute -bottom-16 right-6 z-10 hidden items-center gap-3 rounded-lg bg-ink-2 px-4 py-3 text-paper shadow-[0_20px_40px_-15px_rgba(0,0,0,0.6)] ring-1 ring-paper/10 lg:flex [animation-delay:1.2s]">
             <span className="font-head text-[26px] font-extrabold text-flame">104°F</span>
             <div className="text-[12px] leading-tight text-paper/70">
               Dallas, 3:42 PM
