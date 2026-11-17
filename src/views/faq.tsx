@@ -114,7 +114,7 @@ const FAQ_CATEGORIES: FaqCategory[] = [
       },
       {
         q: "What is the difference between Google Search Ads and Google Local Services Ads?",
-        a: "Google Search Ads appear above organic results for any keyword you bid on — you write the ad and control the targeting. Google Local Services Ads (LSAs) appear above Search Ads in specific service categories, charged per lead rather than per click, and display a Google Screened or Google Guaranteed badge. For HVAC companies, LSAs typically produce lower cost-per-lead than Search Ads because homeowners trust the verification badge. We recommend running both simultaneously for maximum coverage.",
+        a: "Google Search Ads appear above organic results for any keyword you bid on — you write the ad and control the targeting. Google Local Services Ads (LSAs) appear above Search Ads in specific service categories, charged per lead rather than per click, and display a Google Verified badge. For HVAC companies, LSAs typically produce lower cost-per-lead than Search Ads because homeowners trust the verification badge. We recommend running both simultaneously for maximum coverage.",
       },
       {
         q: "How do you target homeowners specifically with Google Ads?",
@@ -161,7 +161,7 @@ const FAQ_CATEGORIES: FaqCategory[] = [
       },
       {
         q: "What is a Google PageSpeed score and why does it matter for HVAC?",
-        a: "Google PageSpeed measures how fast your website loads on a mobile device, scored from 0 to 100. Google uses page speed as a direct ranking factor — slow sites rank lower. Beyond rankings, 53% of mobile users leave a website that takes more than 3 seconds to load. When a homeowner is searching for emergency AC repair from their phone on a hot Texas afternoon, a 7-second load time means a lost lead. Every site we build achieves 90+ on mobile at launch — guaranteed.",
+        a: "Google PageSpeed measures how fast your website loads on a mobile device, scored from 0 to 100. Google uses page speed as a direct ranking factor — slow sites rank lower. Beyond rankings, 53% of mobile users leave a website that takes more than 3 seconds to load. When a homeowner is searching for emergency AC repair from their phone on a hot Texas afternoon, a 7-second load time means a lost lead. Every site we build is engineered to score 90+ on mobile at launch.",
       },
       {
         q: "Do you redesign existing HVAC websites or only build new ones?",
@@ -271,10 +271,6 @@ const FAQ_CATEGORIES: FaqCategory[] = [
       {
         q: "What happens to my accounts and data if I cancel?",
         a: "You keep everything. Your Google Ads account, Google Analytics, Search Console, and Meta Ads Manager accounts are in your name and stay with you. Your website source code is delivered to your GitHub repository. Your CRM data and automation history remain in your account. We do not hold any client data or assets in proprietary systems. Cancellation requires 30 days notice after the initial 6-month term.",
-      },
-      {
-        q: "Do you offer a performance guarantee?",
-        a: "We do not offer a results guarantee framed as a money-back promise — no honest digital marketing agency does, because results depend on market competition, your service area, ad spend, and timing factors outside any agency's control. What we do offer: agreed KPIs at the start of every engagement, transparent monthly reporting against those KPIs, and a commitment to revise strategy at no additional cost if we are underperforming against agreed targets. Our 94% retention rate after 6 months is the most honest signal of client confidence we can provide.",
       },
     ],
   },

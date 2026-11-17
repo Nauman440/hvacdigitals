@@ -38,7 +38,7 @@ export const SERVICES: Record<string, ServiceData> = {
       ["1,000+", "junk searches blocked per account"],
     ],
     mock: "google",
-    mockCaption: "Where your business shows up: the LSA “Google Guaranteed” row, then the top search ad.",
+    mockCaption: "Where your business shows up: the Local Services Ads row, then the top search ad.",
     fitYes: [
       "You can answer the phone (or have someone who can) during business hours",
       "You want emergency repair and replacement calls, not just tune-ups",
@@ -52,7 +52,7 @@ export const SERVICES: Record<string, ServiceData> = {
     ],
     workTitle: "What we actually do in your account",
     work: [
-      { t: "Local Services Ads setup and disputes", d: "We get you verified for the Google Guaranteed badge, tune your service list and hours, and dispute bad leads so Google credits them back." },
+      { t: "Local Services Ads setup and disputes", d: "We get you the Google Verified badge, tune your service list and hours, and dispute bad leads so Google credits them back." },
       { t: "Search campaigns split by job type", d: "Repair, replacement, maintenance and heating each get their own campaign and budget, so cheap tune-up clicks don't eat your install budget." },
       { t: "A negative keyword list that keeps growing", d: "We block “HVAC jobs,” “how to,” “DIY,” “school,” rentals and out-of-area searches. That's typically 30–40% of the waste we find in an audit." },
       { t: "Landing pages that are built for the call", d: "One page per service with your reviews, your trucks and a big tap-to-call button. Never your homepage." },

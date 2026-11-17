@@ -549,7 +549,7 @@ export const PricingSection = () => {
         >
           {[
             { icon: Shield, text: "No long-term contracts. Cancel any month." },
-            { icon: CheckCircle2, text: "1 HVAC company per service area — guaranteed." },
+            { icon: CheckCircle2, text: "1 HVAC company per service area." },
             { icon: Sparkles, text: "Free $1,500 SEO audit before you commit." },
             { icon: Phone, text: "Talk to a real strategist, not a sales rep." },
           ].map((item) => (

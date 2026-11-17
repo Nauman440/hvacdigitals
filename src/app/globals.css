@@ -68,6 +68,8 @@
   --color-flame: #E8590C;
   --color-flame-dark: #C2470A;
   --color-moss: #2E7D4F;
+  --color-ice: #2F7FD8;
+  --color-ice-light: #7CC0FF;
   --font-head: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -290,4 +292,28 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .feed-in { animation: none; }
   html { scroll-behavior: auto; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 60s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-y { animation: float-y 5s ease-in-out infinite; }
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgb(46 125 79 / 0.55); }
+  70% { box-shadow: 0 0 0 8px rgb(46 125 79 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(46 125 79 / 0); }
+}
+.pulse-dot { animation: pulse-dot 2s ease-out infinite; }
+.vent-lines {
+  background-image: repeating-linear-gradient(180deg, rgb(245 241 234 / 0.035) 0 2px, transparent 2px 22px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .float-y, .pulse-dot { animation: none; }
 }

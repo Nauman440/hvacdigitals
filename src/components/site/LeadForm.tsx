@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Loader2, Lock } from "lucide-react";
 import { SITE } from "@/lib/site";
 
@@ -50,6 +50,19 @@ export function LeadForm({
   const [trap, setTrap] = useState("");
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
+
+  useEffect(() => {
+    const onPrefill = (e: Event) => {
+      const c = (e as CustomEvent<string>).detail;
+      if (typeof c === "string" && c.trim()) {
+        setCity(c);
+        setError("");
+        setStep(1);
+      }
+    };
+    window.addEventListener("leadform:city", onPrefill);
+    return () => window.removeEventListener("leadform:city", onPrefill);
+  }, []);
 
   const dark = tone === "dark";
   const box = dark ? "bg-ink text-paper border-paper/10" : "bg-white text-ink border-line";

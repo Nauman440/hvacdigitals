@@ -50,7 +50,7 @@ function GoogleMock() {
               {b.r} <Stars className="h-3 w-3" /> ({b.c})
             </p>
             <p className="mt-1 flex items-center gap-1 text-[12px] text-[#188038]">
-              <Check className="h-3 w-3" /> Google Guaranteed
+              <Check className="h-3 w-3" /> Google Verified
             </p>
           </div>
         ))}

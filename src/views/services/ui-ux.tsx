@@ -369,7 +369,7 @@ const TheProblem = () => {
     {
       icon: Eye,
       title: "No trust signals on the homepage",
-      body: "Texas homeowners need to verify you are licensed, insured, and reviewed before they call. Without visible review counts, certifications, and guarantee badges, your site creates doubt instead of confidence.",
+      body: "Texas homeowners need to verify you are licensed, insured, and reviewed before they call. Without visible review counts, certifications, and warranty details, your site creates doubt instead of confidence.",
     },
     {
       icon: Gauge,
@@ -926,7 +926,7 @@ const VsComparison = () => {
   const rows = [
     { feature: "HVAC-specific conversion research before design", them: false },
     { feature: "Mobile-first design (not mobile-adapted)", them: false },
-    { feature: "Google PageSpeed 90+ guaranteed on mobile", them: false },
+    { feature: "Built to score 90+ on Google PageSpeed (mobile)", them: false },
     { feature: "Dedicated service page per HVAC service type", them: true },
     { feature: "Above-the-fold CTA and click-to-call on all pages", them: false },
     { feature: "Trust signal placement audit and redesign", them: false },
@@ -1028,7 +1028,7 @@ const Faq = () => {
     },
     {
       q: "Will my site rank on Google after the redesign?",
-      a: "A redesign alone does not guarantee rankings — SEO requires ongoing work. However, our sites are built with a clean technical foundation: fast load times, correct header structure, schema markup, and mobile usability — all of which are positive ranking signals. We recommend pairing a redesign with our SEO or Local SEO service for full organic visibility.",
+      a: "A redesign alone will not secure rankings — SEO requires ongoing work. However, our sites are built with a clean technical foundation: fast load times, correct header structure, schema markup, and mobile usability — all of which are positive ranking signals. We recommend pairing a redesign with our SEO or Local SEO service for full organic visibility.",
     },
     {
       q: "What is A/B testing and why does it matter for HVAC?",

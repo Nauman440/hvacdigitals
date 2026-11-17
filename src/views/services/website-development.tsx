@@ -582,7 +582,7 @@ const WhatsIncluded = () => {
         "Click-to-call buttons on all mobile views",
         "Touch-optimised navigation and menus",
         "Responsive breakpoints from 320px to 1920px",
-        "Google PageSpeed 90+ on mobile guaranteed",
+        "Built to score 90+ on Google PageSpeed (mobile)",
         "Core Web Vitals passing (LCP, FID, CLS)",
       ],
     },
@@ -937,7 +937,7 @@ const VsComparison = () => {
   const rows = [
     { feature: "Custom code — not a template or page builder", them: false },
     { feature: "Mobile-first build (not mobile-adapted)", them: false },
-    { feature: "Google PageSpeed 90+ on mobile guaranteed", them: false },
+    { feature: "Built to score 90+ on Google PageSpeed (mobile)", them: false },
     { feature: "Full source code delivered to you at launch", them: false },
     { feature: "On-page SEO architecture built in from line one", them: false },
     { feature: "ServiceTitan / Housecall Pro booking integration", them: false },
